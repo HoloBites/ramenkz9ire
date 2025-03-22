@@ -6,9 +6,58 @@
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+        
+        <!-- Add Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        
+        <script>
+            function resetModel() {
+                const model = document.getElementById('bowser-model');
+                model.setAttribute('scale', '2.695734332912959 2.695734332912959 2.695734332912959');
+                model.setAttribute('rotation', '0 0 0');
+                model.setAttribute('position', '0 0 0');
+            }
+        </script>
+        
+        <style>
+            .button {
+                position: fixed;
+                z-index: 999;
+                background-color: #9fd8cb;
+                color: rgb(0, 0, 0);
+                border: none;
+                border-radius: 5px;
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            }
+            
+            #persistent-button {
+                top: 10px;
+                left: 10px;
+            }
+            
+            #reset-button {
+                top: 10px;
+                left: 100px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            
+            .button:hover {
+                background-color: #45a049;
+            }
+        </style>
     </head>
 
     <body style="margin: 0; overflow: hidden;">
+        <button id="persistent-button" class="button" onclick="window.location.href='https://holobites.netlify.app/'">back</button>
+        <button id="reset-button" class="button" onclick="resetModel()">
+            <span class="material-icons">restart_alt</span>
+        </button>
+        
         <a-scene
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: false;"
